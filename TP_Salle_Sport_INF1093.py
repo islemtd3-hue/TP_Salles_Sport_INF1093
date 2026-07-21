@@ -203,3 +203,20 @@ membres = charger_membres()
 
 for membre in membres:
     membre.afficher()
+
+    def rechercher_membre(membres, numero):
+    for membre in membres:
+        if membre.numero == numero:
+            return membre
+
+    return None
+
+
+numero = int(input("Entrez le numéro du membre : "))
+
+membre_trouve = rechercher_membre(membres, numero)
+
+if membre_trouve is not None:
+    membre_trouve.afficher()
+else:
+    print("Membre introuvable.")
