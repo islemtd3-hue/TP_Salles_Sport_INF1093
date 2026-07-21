@@ -1,0 +1,4 @@
+STANDARD;1;Sous-sol;12.5;750;Oui;Oui
+STANDARD;2;Rez-de-chaussée;13;800;Non;Non
+LUXE;3;Étage 2;18;1100;Oui;Oui
+LUXE;4;Étage 2;20;1250;Oui;Non
