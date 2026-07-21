@@ -123,3 +123,17 @@ membres = [m1, m2, m3, m4]
 
 for membre in membres:
     membre.afficher()
+    membres = []
+
+m1 = MembreStandard(1, "Julie Tremblay", "Centre-ville", 12, 45, "Oui", "Oui")
+m2 = MembreStandard(2, "Marc Bouchard", "Est", 6, 40, "Non", "Non")
+m3 = MembrePremium(3, "Sophie Nguyen", "Centre-ville", 12, 80, "Oui", "Oui")
+m4 = MembrePremium(4, "Karim Haddad", "Ouest", 24, 75, "Oui", "Non")
+
+membres.append(m1)
+membres.append(m2)
+membres.append(m3)
+membres.append(m4)
+
+for membre in membres:
+    membre.afficher()
