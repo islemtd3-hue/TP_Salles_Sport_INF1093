@@ -138,7 +138,7 @@ membres.append(m4)
 for membre in membres:
     membre.afficher()
 
-    def sauvegarder_membres(membres):
+def sauvegarder_membres(membres):
     fichier = open("membres.txt", "w")
 
     for membre in membres:
