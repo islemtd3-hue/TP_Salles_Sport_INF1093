@@ -92,3 +92,34 @@ m2 = MembrePremium(2, "Marc Bouchard", "Est", 6, 80, "Oui", "Oui")
 
 m1.afficher()
 m2.afficher()
+class MembreStandard(Membre):
+    def _init_(self, numero, nom, succursale, duree, prix, actif, casier):
+        super()._init_(numero, nom, succursale, duree, prix, actif)
+        self.casier = casier
+
+    def afficher(self):
+        print("STANDARD")
+        print(self.numero, self.nom, self.succursale,
+              self.duree, self.prix, self.actif, self.casier)
+
+
+class MembrePremium(Membre):
+    def _init_(self, numero, nom, succursale, duree, prix, actif, coach):
+        super()._init_(numero, nom, succursale, duree, prix, actif)
+        self.coach = coach
+
+    def afficher(self):
+        print("PREMIUM")
+        print(self.numero, self.nom, self.succursale,
+              self.duree, self.prix, self.actif, self.coach)
+
+
+m1 = MembreStandard(1, "Julie Tremblay", "Centre-ville", 12, 45, "Oui", "Oui")
+m2 = MembreStandard(2, "Marc Bouchard", "Est", 6, 40, "Non", "Non")
+m3 = MembrePremium(3, "Sophie Nguyen", "Centre-ville", 12, 80, "Oui", "Oui")
+m4 = MembrePremium(4, "Karim Haddad", "Ouest", 24, 75, "Oui", "Non")
+
+membres = [m1, m2, m3, m4]
+
+for membre in membres:
+    membre.afficher()
