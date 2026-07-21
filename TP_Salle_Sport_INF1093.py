@@ -1,30 +1,15 @@
 class Membre:
     def __init__(self, numero, nom, succursale, duree, prix, actif):
-        self.numero = numero
-        self.nom = nom
-        self.succursale = succursale
-        self.duree = duree
-        self.prix = prix
-        self.actif = actif
-
-    def afficher(self):
-        print(self.numero, self.nom, self.succursale, self.duree, self.prix, self.actif)
-
-
-m1 = Membre(1, "Julie Tremblay", "Centre-ville", 12, 45, "Oui")
-m2 = Membre(2, "Marc Bouchard", "Est", 6, 40, "Non")
-
-m1.afficher()
-m2.afficher()
-
-class Membre:
-    def __init__(self, numero, nom, succursale, duree, prix, actif):
         self.__numero = numero
         self.__nom = nom
         self.__succursale = succursale
-        self.__duree = duree
-        self.__prix = prix
-        self.__actif = actif
+        self.__duree = 1
+        self.__prix = 1
+        self.__actif = "Non"
+
+        self.duree = duree
+        self.prix = prix
+        self.actif = actif
 
     @property
     def numero(self):
@@ -86,11 +71,11 @@ class Membre:
             print("État invalide.")
 
     def afficher(self):
-        print(self.numero, self.nom, self.succursale, self.duree, self.prix, self.actif)
+        print(self.numero, self.nom, self.succursale,
+              self.duree, self.prix, self.actif)
 
 
-
-        class MembreStandard(Membre):
+class MembreStandard(Membre):
     def __init__(self, numero, nom, succursale, duree, prix, actif, casier):
         super().__init__(numero, nom, succursale, duree, prix, actif)
         self.casier = casier
@@ -100,3 +85,10 @@ class MembrePremium(Membre):
     def __init__(self, numero, nom, succursale, duree, prix, actif, coach):
         super().__init__(numero, nom, succursale, duree, prix, actif)
         self.coach = coach
+
+
+m1 = MembreStandard(1, "Julie Tremblay", "Centre-ville", 12, 45, "Oui", "Oui")
+m2 = MembrePremium(2, "Marc Bouchard", "Est", 6, 80, "Oui", "Oui")
+
+m1.afficher()
+m2.afficher()
