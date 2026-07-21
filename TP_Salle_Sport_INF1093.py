@@ -137,3 +137,21 @@ membres.append(m4)
 
 for membre in membres:
     membre.afficher()
+
+    def sauvegarder_membres(membres):
+    fichier = open("membres.txt", "w")
+
+    for membre in membres:
+        if isinstance(membre, MembreStandard):
+            fichier.write(
+                f"STANDARD;{membre.numero};{membre.nom};{membre.succursale};{membre.duree};{membre.prix};{membre.actif};{membre.casier}\n"
+            )
+        elif isinstance(membre, MembrePremium):
+            fichier.write(
+                f"PREMIUM;{membre.numero};{membre.nom};{membre.succursale};{membre.duree};{membre.prix};{membre.actif};{membre.coach}\n"
+            )
+
+    fichier.close()
+
+
+sauvegarder_membres(membres)
