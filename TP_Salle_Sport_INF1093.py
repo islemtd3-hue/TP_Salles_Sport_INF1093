@@ -155,3 +155,51 @@ for membre in membres:
 
 
 sauvegarder_membres(membres)
+
+
+def charger_membres():
+    membres = []
+
+    try:
+        fichier = open("membres.txt", "r")
+
+        for ligne in fichier:
+            donnees = ligne.strip().split(";")
+            type_membre = donnees[0]
+
+            if type_membre == "STANDARD":
+                membre = MembreStandard(
+                    int(donnees[1]),
+                    donnees[2],
+                    donnees[3],
+                    int(donnees[4]),
+                    float(donnees[5]),
+                    donnees[6],
+                    donnees[7]
+                )
+
+            elif type_membre == "PREMIUM":
+                membre = MembrePremium(
+                    int(donnees[1]),
+                    donnees[2],
+                    donnees[3],
+                    int(donnees[4]),
+                    float(donnees[5]),
+                    donnees[6],
+                    donnees[7]
+                )
+
+            membres.append(membre)
+
+        fichier.close()
+
+    except FileNotFoundError:
+        print("Le fichier membres.txt n'existe pas.")
+
+    return membres
+
+
+membres = charger_membres()
+
+for membre in membres:
+    membre.afficher()
