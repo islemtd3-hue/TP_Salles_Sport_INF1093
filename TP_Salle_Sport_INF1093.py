@@ -219,3 +219,53 @@ if membre_trouve is not None:
     membre_trouve.afficher()
 else:
     print("Membre introuvable.")
+import random
+import time
+
+def hacher_membre(nom, succursale):
+    return hash((nom, succursale))
+
+
+noms = ["Julie", "Marc", "Sophie", "Karim", "Ali", "Sara", "Emma", "Lucas"]
+succursales = ["Centre-ville", "Est", "Ouest", "Nord"]
+
+membres = []
+
+for i in range(1000):
+    nom = random.choice(noms)
+    succursale = random.choice(succursales)
+    membres.append((nom, succursale))
+
+
+debut = time.time()
+
+ensemble = set()
+
+for nom, succursale in membres:
+    cle = hacher_membre(nom, succursale)
+    if cle not in ensemble:
+        ensemble.add(cle)
+
+temps_hash = time.time() - debut
+
+
+debut = time.time()
+
+liste = []
+
+for nom, succursale in membres:
+    doublon = False
+
+    for m in liste:
+        if m == (nom, succursale):
+            doublon = True
+            break
+
+    if not doublon:
+        liste.append((nom, succursale))
+
+temps_liste = time.time() - debut
+
+
+print("Temps avec hash :", temps_hash)
+print("Temps avec recherche linéaire :", temps_liste)
