@@ -269,3 +269,57 @@ temps_liste = time.time() - debut
 
 print("Temps avec hash :", temps_hash)
 print("Temps avec recherche linéaire :", temps_liste)
+
+import random
+import time
+
+def construire_index(membres):
+    index = {}
+
+    for membre in membres:
+        index[membre.numero] = membre
+
+    return index
+
+
+def rechercher_par_numero(index_membres, numero):
+    if numero in index_membres:
+        return index_membres[numero]
+    return None
+
+
+membres = []
+
+for i in range(10000):
+    membre = MembreStandard(
+        i,
+        "Nom" + str(i),
+        "Centre-ville",
+        12,
+        50,
+        "Oui",
+        "Oui"
+    )
+    membres.append(membre)
+
+
+index_membres = construire_index(membres)
+
+numero = random.randint(0, 9999)
+
+debut = time.time()
+
+for membre in membres:
+    if membre.numero == numero:
+        break
+
+temps_liste = time.time() - debut
+
+debut = time.time()
+
+membre = rechercher_par_numero(index_membres, numero)
+
+temps_dictionnaire = time.time() - debut
+
+print("Temps avec liste :", temps_liste)
+print("Temps avec dictionnaire :", temps_dictionnaire)
