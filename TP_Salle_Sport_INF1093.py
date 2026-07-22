@@ -203,8 +203,7 @@ membres = charger_membres()
 
 for membre in membres:
     membre.afficher()
-
-    def rechercher_membre(membres, numero):
+def rechercher_membre(membres, numero):
     for membre in membres:
         if membre.numero == numero:
             return membre
