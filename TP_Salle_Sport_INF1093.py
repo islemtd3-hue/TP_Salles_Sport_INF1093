@@ -323,3 +323,44 @@ temps_dictionnaire = time.time() - debut
 
 print("Temps avec liste :", temps_liste)
 print("Temps avec dictionnaire :", temps_dictionnaire)
+
+def afficher_menu():
+    print("\n1. Afficher les membres")
+    print("2. Rechercher un membre")
+    print("3. Sauvegarder les membres")
+    print("4. Charger les membres")
+    print("5. Quitter")
+
+
+choix = ""
+
+while choix != "5":
+    afficher_menu()
+    choix = input("Votre choix : ")
+
+    if choix == "1":
+        for membre in membres:
+            membre.afficher()
+
+    elif choix == "2":
+        numero = int(input("Numéro du membre : "))
+        membre_trouve = rechercher_membre(membres, numero)
+
+        if membre_trouve is not None:
+            membre_trouve.afficher()
+        else:
+            print("Membre introuvable.")
+
+    elif choix == "3":
+        sauvegarder_membres(membres)
+        print("Membres sauvegardés.")
+
+    elif choix == "4":
+        membres = charger_membres()
+        print("Membres chargés.")
+
+    elif choix == "5":
+        print("Fin du programme.")
+
+    else:
+        print("Choix invalide.")
