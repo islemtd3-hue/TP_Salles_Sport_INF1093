@@ -139,7 +139,7 @@ for membre in membres:
     membre.afficher()
 
     def sauvegarder_membres(membres):
-    fichier = open("membres.txt", "w")
+        fichier = open("membres.txt", "w")
 
     for membre in membres:
         if isinstance(membre, MembreStandard):
